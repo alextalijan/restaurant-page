@@ -1,4 +1,4 @@
-const path = NodeJS.require("path");
+const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -8,6 +8,9 @@ module.exports = {
         filename: "main.js",
         path: path.resolve(__dirname, "dist"),
         clean: true,
+    },
+    devServer: {
+        watchFiles: ["./src/template.html"],
     },
     plugins: [
         new HtmlWebpackPlugin({
