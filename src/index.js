@@ -1,1 +1,3 @@
-console.log("Hello, Odinite");
+import { initialPageLoad } from "./initial-page-load.js";
+
+initialPageLoad();
