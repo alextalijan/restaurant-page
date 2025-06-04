@@ -1,0 +1,26 @@
+{
+  "name": "restaurant-page",
+  "version": "1.0.0",
+  "description": "Odin Project Webpack Assignment",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alextalijan/restaurant-page.git"
+  },
+  "author": "Aleksandar Talijan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alextalijan/restaurant-page/issues"
+  },
+  "homepage": "https://github.com/alextalijan/restaurant-page#readme",
+  "keywords": [],
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  }
+}
