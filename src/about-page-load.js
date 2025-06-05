@@ -3,6 +3,7 @@ import chefThumbsUp from "./img/chef-thumbs-up.jpg";
 export function aboutPageLoad() {
     const heading = document.createElement("h1");
     heading.textContent = "Contact Us";
+    heading.className = "about-page-heading";
 
     const paragraphsDiv = document.createElement("div");
     const p1 = document.createElement("p");
@@ -15,6 +16,7 @@ export function aboutPageLoad() {
     paragraphsDiv.appendChild(p1);
     paragraphsDiv.appendChild(p2);
     paragraphsDiv.appendChild(p3);
+    paragraphsDiv.className = "about-page-paragraphs";
 
     const image = document.createElement("img");
     image.src = chefThumbsUp;
