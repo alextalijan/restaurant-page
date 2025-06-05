@@ -1,8 +1,24 @@
-export function menuPageLoad() {
+import Papa from "papaparse";
+
+export async function menuPageLoad() {
+    // Loads meals into an array of meal objects
+    async function loadCSV(url) {
+        const text = await fetch(url).then(res => res.text());
+        const { data } = Papa.parse(text, {
+            header: true,
+            skipEmptyLines: true,
+        });
+        return data;
+    }
+
+    const meals = await loadCSV("../meals.csv");
+
+    // Create a table
     const menuTable = document.createElement("table");
     const menuThead = document.createElement("thead");
     const menuTbody = document.createElement("tbody");
 
+    // Initiate table columns
     const theadRow = document.createElement("tr");
     const thMeal = document.createElement("th");
     thMeal.textContent = "Meal";
@@ -18,48 +34,18 @@ export function menuPageLoad() {
     menuTable.appendChild(menuThead);
 
     // Add all meals as rows
-    const mealOneRow = document.createElement("tr");
-    
-    const mealOneName = document.createElement("td");
-    const mealOneDescription = document.createElement("td");
-    const mealOnePrice = document.createElement("td");
-    mealOneName.textContent = "Italian Pizza";
-    mealOneDescription.textContent = "Homemade thin crust, sprankled with tomato sauce with our special italian recipe, that includes oregano and olives.";
-    mealOnePrice.textContent = "13";
-    mealOneRow.appendChild(mealOneName);
-    mealOneRow.appendChild(mealOneDescription);
-    mealOneRow.appendChild(mealOnePrice);
+    for (const meal of meals) {
+        const mealRow = document.createElement("tr");
 
+        for (const key in meal) {
+            const mealAttribute = document.createElement("td");
+            mealAttribute.textContent = meal[key];
+            mealRow.appendChild(mealAttribute);
+        }
 
-    const mealTwoRow = document.createElement("tr");
-    
-    const mealTwoName = document.createElement("td");
-    const mealTwoDescription = document.createElement("td");
-    const mealTwoPrice = document.createElement("td");
-    mealTwoName.textContent = "Classic Meatballs";
-    mealTwoDescription.textContent = "Delicious juicy meatballs prepared in the way of middle age - like Romans were eating. Comes with a side of potatoes.";
-    mealTwoPrice.textContent = "16";
-    mealTwoRow.appendChild(mealTwoName);
-    mealTwoRow.appendChild(mealTwoDescription);
-    mealTwoRow.appendChild(mealTwoPrice);
+        menuTbody.appendChild(mealRow);
+    }
 
-
-    const mealThreeRow = document.createElement("tr");
-    
-    const mealThreeName = document.createElement("td");
-    const mealThreeDescription = document.createElement("td");
-    const mealThreePrice = document.createElement("td");
-    mealThreeName.textContent = "Pasta Carbonara";
-    mealThreeDescription.textContent = "Nice juicy spaghetti filled with creamy carbonara sauce that contains sweet cream and mushrooms.";
-    mealThreePrice.textContent = "12";
-    mealThreeRow.appendChild(mealThreeName);
-    mealThreeRow.appendChild(mealThreeDescription);
-    mealThreeRow.appendChild(mealThreePrice);
-
-    // Append every meal to the tbody, and then to the whole table
-    menuTbody.appendChild(mealOneRow);
-    menuTbody.appendChild(mealTwoRow);
-    menuTbody.appendChild(mealThreeRow);
     menuTable.appendChild(menuTbody);
     menuTable.className = "menu-table";
 
