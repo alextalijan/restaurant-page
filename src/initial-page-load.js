@@ -1,6 +1,6 @@
 import myRestaurantImage from "./img/my-restaurant.jpg";
 
-export function initialPageLoad() {
+export function homePageLoad() {
     const heading = document.createElement("h1");
     const image = document.createElement("img");
     const paragraphsDiv = document.createElement("div");
