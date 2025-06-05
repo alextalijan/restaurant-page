@@ -22,8 +22,9 @@ export function homePageLoad() {
     paragraphsDiv.appendChild(p2);
     paragraphsDiv.appendChild(p3);
 
-    // Attach everything to the content div
+    // Attach everything to the content div, after emptying it
     const contentDiv = document.querySelector("#content");
+    contentDiv.innerHTML = "";
     contentDiv.appendChild(heading);
     contentDiv.appendChild(image);
     contentDiv.appendChild(paragraphsDiv);
