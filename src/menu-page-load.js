@@ -61,6 +61,7 @@ export function menuPageLoad() {
     menuTbody.appendChild(mealTwoRow);
     menuTbody.appendChild(mealThreeRow);
     menuTable.appendChild(menuTbody);
+    menuTable.className = "menu-table";
 
     // Add table to the content box
     const contentDiv = document.querySelector("#content");
