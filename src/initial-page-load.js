@@ -4,11 +4,13 @@ export function homePageLoad() {
     const heading = document.createElement("h1");
     const image = document.createElement("img");
     const paragraphsDiv = document.createElement("div");
+    paragraphsDiv.className = "welcome-paragraphs-div";
 
     // Add content to every element
     heading.textContent = "Welcome To My Restaurant!";
+    heading.className = "welcome-heading";
     image.src = myRestaurantImage;
-    image.width = "500";
+    image.width = "800";
 
     const p1 = document.createElement("p");
     const p2 = document.createElement("p");

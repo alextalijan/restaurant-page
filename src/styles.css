@@ -1,0 +1,30 @@
+.nav-btn {
+    font-size: 1.5rem;
+    padding: 0.5em 1em;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    background-color: #90D5FF;
+    transition: background-color 0.5s ease;
+}
+
+.nav-btn:hover {
+    background-color: #78BFEA;
+}
+
+.content {
+    margin-top: 2rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-heading {
+    font-size: 4rem;
+}
+
+.welcome-paragraphs-div {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
